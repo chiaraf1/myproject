@@ -15,7 +15,7 @@
 }
 
   /* Estilos del Menú */
-aside {
+aside.menu-hambur{
     position: fixed;
     top: 0;
     left: 0;
@@ -26,7 +26,7 @@ aside {
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
 }
-.menu-open {
+aside.menu-hambur.menu-open {
     transform: translateX(0);
 }
 aside ul {

@@ -28,12 +28,15 @@ const Header = () => {
           <li className='text-gray-700'>
             <Link to="/login">Sign in</Link> 
             </li>
+            <li className='text-gray-700'>
+              <Link to="/register">Register</Link>
+            </li>
         </ul>
       </nav>
     </div>
     {/* //MenuHambur */}
-    <aside className={menuOp ? "menu-open" : ""}>
-    <MenuHambur data={data}/>
+    <aside className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${menuOp ? 'translate-x-0' : '-translate-x-full'}`}>
+    <MenuHambur data={data} setMenuOp={setMenuOp}/>
     </aside>
     </>
   );
