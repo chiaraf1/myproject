@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-function MenuHambur({data, setMenuOp}) {
+function MenuHambur({setMenuOp}) {
 return (
     <>
     <nav className='p-4 w-64 bg-white h-full shadow-lg' > 

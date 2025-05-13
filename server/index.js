@@ -1,56 +1,22 @@
-// 1- Importamos express
-const express = require("express");
-const jwt = require("jsonwebtoken");
 require("dotenv").config();
 require("./db");
 
+const express = require("express");
+const cors = require("cors");
 
-// 2- Creamos la app
 const app = express();
-
-
-// 2.1- Activamos el middleware para leer JSON del req.body
+app.use(cors());
 app.use(express.json());
 
-// 2.2- Activamos el middleware para activar la politica CORS
-const cors = require("cors");
-const userRouter = require("./routes/usuarios");
-app.use(cors());
+const userRoutes = require("./routes/usuarios");
+const modeloRoutes = require("./routes/modelosRoute");
 
-// ------------------------
-// 3- Definimos una ruta básica, la ruta principal (/)
-app.get("/", (_req, res) => {
-  console.log(process.env.PORT);
-  res.send("Hola mundo");
-});
+app.use("/api", userRoutes);
+app.use("/api/modelos", modeloRoutes);
+app.use('/uploads', express.static('uploads'));
 
-app.get("/saludo/:nombre", (req, res) => {
-  console.log(req);
-  const { nombre } = req.params;
-  res.send(`Hola ${nombre}`);
-});
 
-app.get("/libros/:id", (req, res) => {
-  const { id } = req.params;
-  // consultas a base de datos para obtener la data del libro con el :id
-  res.send(`Aún no podemos consultar el libro con el id: ${id} `);
-});
-
-app.post("/estudiante", (req, res) => {
-  console.log(req.body);
-  const { nombre, email } = req.body;
-  res.json({ msg: "Dato recibido correctamente.", data: { nombre, email } });
-});
-// ------------------------
-
-app.use("/api", userRouter);
-app.use((req, res) => {
-  res.status(404).send("Ruta no disponible.");
-});
-
-// 4- Configuramos la escucha de un puerto y levantamos
-//    nuestro servidor
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
-  console.log(`El servidor está corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

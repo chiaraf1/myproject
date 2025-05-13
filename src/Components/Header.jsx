@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import myProjectImage from '../assets/myproject.png'
 import { Bars3Icon } from "@heroicons/react/24/outline";
-import data from '../data'
 import MenuHambur from './MenuHambur';
+import Perfil from '../pages/Perfil';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 
 const Header = () => {
   const [menuOp, setMenuOp] = useState(false);
+  const isAuthenticated = useSelector(
+  (state) => state.usuarios.isAuthenticated
+  );
 
   return (
     <>
@@ -23,20 +27,29 @@ const Header = () => {
       <img src={myProjectImage} alt="logotemporary" className='mx-auto h-10'/> 
       </Link>
       <nav>
-        <ul>
+        <ul className='flex gap-4'>
+          {!isAuthenticated && (
+            <>
           {/*Sign in dere */}
           <li className='text-gray-700'>
             <Link to="/login">Sign in</Link> 
             </li>
             <li className='text-gray-700'>
               <Link to="/register">Register</Link>
-            </li>
-        </ul>
+              </li>
+              </>
+    )}
+    {isAuthenticated && (
+      <li className='text-gray-700'>
+        <Link to="/perfil">Perfil</Link>
+      </li>
+    )}
+  </ul>
       </nav>
     </div>
     {/* //MenuHambur */}
     <aside className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ${menuOp ? 'translate-x-0' : '-translate-x-full'}`}>
-    <MenuHambur data={data} setMenuOp={setMenuOp}/>
+    <MenuHambur setMenuOp={setMenuOp}/>
     </aside>
     </>
   );

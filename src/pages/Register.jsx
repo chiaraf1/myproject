@@ -11,16 +11,24 @@ export default function Register() {
         e.preventDefault();
         const res =  await fetch(`${API_URL}/register`, { 
             method: "POST", 
-            header:{"Content-type": "application/json"}, 
+            headers:{"Content-type": "application/json"}, 
             body: JSON.stringify({nombre, email, password})
         });
-        const data = await res.json();
+        console.log("Responde status:", res.status);
+        const text = await res.text();
+        console.log("Response body:", text);
+
+        try {
+            const data = JSON.parse(text);
         if(res.status === 400){
             alert ("Error al crear usuario");
         } else if (res.status === 201){
             alert("usuario creado correctamente");
         }
-    };
+    } catch (error){
+        console.error("No es JSON vàlido:", error);
+    }
+};
     return (
     <form action="">
         <input type="text" 
