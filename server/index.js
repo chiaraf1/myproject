@@ -10,10 +10,12 @@ app.use(express.json());
 
 const userRoutes = require("./routes/usuarios");
 const modeloRoutes = require("./routes/modelosRoute");
+const desfileRoutes = require("./routes/desfilesRoute");
 
 app.use("/api", userRoutes);
 app.use("/api/modelos", modeloRoutes);
 app.use('/uploads', express.static('uploads'));
+app.use("/api/desfiles" , desfileRoutes);
 
 
 const PORT = process.env.PORT || 5001;
