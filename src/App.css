@@ -98,3 +98,12 @@ input{
     width: 100%;
     height: 100%;
 }
+.button-register{
+    width: 100%;
+    display: block;
+    background-color: #555;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 0;
+}

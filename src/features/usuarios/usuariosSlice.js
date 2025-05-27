@@ -15,9 +15,15 @@ reducers: {
     state.token = action.payload.token;
     state.isAuthenticated = true;
     },
+    logout: (state) =>{
+        state.email = null;
+        state.nombre = null;
+        state.token = null;
+        state.isAuthenticated = false;
+    },
 },
 });
 
-export const { login } = usuariosSlice.actions;
+export const { login, logout} = usuariosSlice.actions;
 
 export default usuariosSlice.reducer;

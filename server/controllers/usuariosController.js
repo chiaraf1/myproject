@@ -30,16 +30,16 @@ exports.login = async (req, res) => {
   const match = await bcrypt.compare(password, usuario.password);
   if (!match) return res.status(401).json({ mensaje: "Contraseña incorrecta" });
 
-  const token = jwt.sign({ id: usuario._id, email: usuario.email }, process.env.JWT_SECRET, {
+  const token = jwt.sign(
+    { id: usuario._id, email: usuario.email , nombre:usuario.nombre}, process.env.JWT_SECRET, {
     expiresIn: "1h"
   });
 
-  res.json({ mensaje: "Login exitoso", token });
+  res.json({ mensaje: "Login exitoso", token, data:{email: usuario.email, nombre: usuario.nombre} });
 };
 
 exports.perfil = async (req, res) => {
-  const { email } = req.body;
-  const usuario = await Usuario.findById({email});
+  const usuario = await Usuario.findById(req.usuario.id);
   if (!usuario) {
     return res.status(404).json({ mensaje: "Usuario no encontrado"});
   }

@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import myProjectImage from '../assets/myproject.png'
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import MenuHambur from './MenuHambur';
-import Perfil from '../pages/Perfil';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { logout } from '../features/usuarios/usuariosSlice';
 
 
 
@@ -13,6 +13,10 @@ const Header = () => {
   const isAuthenticated = useSelector(
   (state) => state.usuarios.isAuthenticated
   );
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  console.log("isAuthenticated:", isAuthenticated);
 
   return (
     <>
@@ -40,11 +44,21 @@ const Header = () => {
               </>
     )}
     {isAuthenticated && (
+      <>
       <li className='text-gray-700'>
         <Link to="/perfil">Perfil</Link>
       </li>
+      <li className='text-gray-700'>
+        <button onClick={() => {
+          dispatch(logout());
+          navigate("/");
+        }}>
+          Logout</button>
+      </li>
+      </>
     )}
   </ul>
+  
       </nav>
     </div>
     {/* //MenuHambur */}
@@ -54,5 +68,6 @@ const Header = () => {
     </>
   );
 }
+
 
 export default Header;

@@ -33,17 +33,22 @@ export default function Register() {
     <form action="">
         <input type="text" 
         placeholder='username' 
+        value={nombre}
         onChange={(e) => setNombre(e.target.value)}
         />
         <input type="email" 
         placeholder="email"
+        value={email}
         onChange={(e) => setEmail(e.target.value)}
         />
         <input type="password" 
         placeholder='password'
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit" onClick={registrar}
+        <button className="button-register"
+        type="submit" 
+        onClick={registrar}
         >Register
         </button>
     </form>
