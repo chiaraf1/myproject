@@ -17,6 +17,9 @@ app.use("/api/modelos", modeloRoutes);
 app.use('/uploads', express.static('uploads'));
 app.use("/api/desfiles" , desfileRoutes);
 
+app.get("/", (req, res) => {
+  res.send("API CORRIENDO CORRECTAMENTE");
+});
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {

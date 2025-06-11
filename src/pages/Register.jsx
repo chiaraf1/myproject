@@ -5,7 +5,8 @@ export default function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const API_URL = "http://localhost:5001/api";
+    // const API_URL = "http://localhost:5001/api";
+    const API_URL ="https://myprojectback-i72e.onrender.com/api";
 
     const registrar = async (e) => {
         e.preventDefault();
