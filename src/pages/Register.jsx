@@ -6,7 +6,7 @@ export default function Register() {
     const [password, setPassword] = useState("");
 
     // const API_URL = "http://localhost:5001/api";
-    const API_URL ="https://myprojectback-i72e.onrender.com/api";
+    const API_URL = import.meta.env.VITE_API_URL;
 
     const registrar = async (e) => {
         e.preventDefault();

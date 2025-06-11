@@ -6,7 +6,8 @@ function Desfilespage() {
     const [desfiles, setDesfiles] = useState ([]);
 
         useEffect (() => {
-            fetch('http://localhost:5001/api/desfiles')
+            // fetch('http://localhost:5001/api/desfiles')
+            fetch(`${import.meta.env.VITE_API_URL}/desfiles`)
             .then(res => res.json())
             .then(data => setDesfiles(data))
             .catch(err => console.error("Error al cargar los desfiles:", err));
