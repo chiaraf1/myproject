@@ -11,11 +11,13 @@ app.use(express.json());
 const userRoutes = require("./routes/usuarios");
 const modeloRoutes = require("./routes/modelosRoute");
 const desfileRoutes = require("./routes/desfilesRoute");
+const curiosidadesRoutes = require("./routes/curiosidadesRoute");
 
 app.use("/api", userRoutes);
 app.use("/api/modelos", modeloRoutes);
 app.use('/uploads', express.static('uploads'));
 app.use("/api/desfiles" , desfileRoutes);
+app.use("/api/curiosidades", curiosidadesRoutes);
 
 app.get("/", (req, res) => {
   res.send("API CORRIENDO CORRECTAMENTE");
