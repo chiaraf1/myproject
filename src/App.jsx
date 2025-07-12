@@ -1,31 +1,36 @@
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
-import Layout from "./Components/Layout";
-import Home from './pages/Home';
-import Desfilespage from './pages/Desfilespage';
-import Modelospage from './pages/Modelospage';
-import Login from './pages/Login'
-import Register from './pages/Register';
-import Search from './pages/Search';
-import Perfil from "./pages/Perfil";
 import "./App.css";
+import Navbar from './Components/Navbar/Navbar';
+import Home from './pages/Home';
+import Post from "./pages/Post"
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Perfil from "./pages/Perfil"
+import AdminDash from "./pages/AdminDash";
+import EditPost from "./pages/EditPost";
+import CreatePost from "./pages/CreatePost";
+import Modelos from "./pages/Modelos";
+import Desfiles from "./pages/Desfiles"
 
 
 function App () {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Layout/>}>
-        <Route index element={<Home />} />
-        <Route path="/desfiles" element={<Desfilespage />} />
-        <Route path="/modelos" element={<Modelospage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/post/:id" element={<Post />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/perfil" element={<Perfil />} />
-        </Route>
+        <Route path="/admin" element={<AdminDash />} />
+        <Route path="/edit/:id" element={<EditPost />} />
+        <Route path="/create" element={<CreatePost />} />
+        <Route path="/modelos" element={<Modelos />} />
+        <Route path="/desfiles" element={<Desfiles />} />
       </Routes>
       </BrowserRouter>
-  );
+  )
 }
 
 export default App;

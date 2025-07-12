@@ -5,25 +5,27 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
+//Middlewares
 app.use(cors());
-app.use(express.json());
+app.use(express.json());//pass json data
 
+//Rutas
 const userRoutes = require("./routes/usuarios");
-const modeloRoutes = require("./routes/modelosRoute");
-const desfileRoutes = require("./routes/desfilesRoute");
-const curiosidadesRoutes = require("./routes/curiosidadesRoute");
+const postRoutes = require("./routes/postsRoutes");
 
+//Usar rutas
 app.use("/api", userRoutes);
-app.use("/api/modelos", modeloRoutes);
 app.use('/uploads', express.static('uploads'));
-app.use("/api/desfiles" , desfileRoutes);
-app.use("/api/curiosidades", curiosidadesRoutes);
+app.use("/api/posts", postRoutes);
+
 
 app.get("/", (req, res) => {
   res.send("API CORRIENDO CORRECTAMENTE");
 });
 
+//PORT
 const PORT = process.env.PORT || 5001;
+//Start the server
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

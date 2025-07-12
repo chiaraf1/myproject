@@ -22,7 +22,7 @@ export default function Register() {
         try {
             const data = JSON.parse(text);
         if(res.status === 400){
-            alert ("Error al crear usuario");
+            alert(data.mensaje) || ("Error al crear usuario");
         } else if (res.status === 201){
             alert("usuario creado correctamente");
         }

@@ -1,65 +1,67 @@
 
-/* Estilos del Header */
-.header-container {
-    background-color: white;
-    width: 100%;
-    position: sticky;
-    z-index: 30;
-    top: 0;
-    padding: 1rem;
-    height: 80px;
+/* NAVBAR */
+.navbar {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    background-color: #333;
+    padding: 0 20px;
+    height: 60px;
+    color: white;
+    position: relative;
 }
 
-  /* Estilos del Menú */
-aside.menu-hambur{
+.logo {
+    font-size: 1.5rem;
+    color: white;
+}
+
+  /* BURGER ICON SIEMPRE VISIBLE */
+.burger-icon {
+    cursor: pointer;
+    color: white;
+    z-index: 1001;
+}
+
+  /* MENÚ LATERAL (CERRADO POR DEFECTO) */
+.nav-menu {
+    display: none;
+}
+
+  /* MENÚ ABIERTO */
+.nav-menu.open {
+    display: flex;
+    flex-direction: column;
+    background-color: #5e5858;
     position: fixed;
     top: 0;
-    left: 0;
-    width: 250px;
+    right: 0;
     height: 100vh;
-    background: rgb(235, 229, 229);
-    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-}
-aside.menu-hambur.menu-open {
-    transform: translateX(0);
-}
-aside ul {
-    list-style: none;
-    padding: 0;
-}
-aside li {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    width: 250px;
+    padding-top: 4rem;
+    z-index: 1000;
 }
 
-  /* Estilos de los modelos (Modelos) */
-article.model-content {
-    display: flex;
-    align-items: center;
-    padding: 30px;
-    border-bottom: 1px solid #ddd;
-}
-
-.main-image-container {
-    width: 125px;
-    height: 168px;
-    overflow: hidden;
-    border-radius: 5px;
-    flex-shrink: 0;
-    margin-right: 19px;
-}
-
-.main-image {
-    height: 100%;
+.nav-menu.open ul {
+    flex-direction: column;
     width: 100%;
-    object-fit: cover;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
+
+.nav-menu.open li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #777;
+    color: white;
+    cursor: pointer;
+}
+
+  /* OPCIONAL: TRANSICIÓN */
+.nav-menu.open {
+    transition: all 0.3s ease-in-out;
+}
+
 form.login{
     max-width: 400px;
     margin: 0 auto;
@@ -83,20 +85,7 @@ input{
     color: #fff;
     border-radius: 5px;
     padding: 7px 0;
-}
-.responsive-iframe {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-}
-
-.responsive-iframe iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    cursor: pointer;
 }
 .button-register{
     width: 100%;
@@ -106,4 +95,23 @@ input{
     color: #fff;
     border-radius: 5px;
     padding: 7px 0;
+    cursor: pointer;
+}
+
+.navbar-left,
+.navbar-center,
+.navbar-right {
+    flex: 1;
+    display: flex;
+    align-items:center;
+}
+
+
+.navbar-center{
+    justify-content: center;
+}
+
+.navbar-right {
+    justify-content: flex-end;
+    gap: 1rem;
 }

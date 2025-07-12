@@ -24,6 +24,6 @@ reducers: {
 },
 });
 
-export const { login, logout} = usuariosSlice.actions;
+export const { login, logout } = usuariosSlice.actions;
 
 export default usuariosSlice.reducer;
