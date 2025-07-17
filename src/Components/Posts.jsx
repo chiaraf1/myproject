@@ -4,11 +4,12 @@ import PostComp from "./PostComp"; // cada post individual
 
 function Posts({ category }) {
 const [posts, setPosts] = useState([]);
+const API_URL = import.meta.env.VITE_API_URL;
 
 useEffect(() => {
     const fetchPosts = async () => {
     try {
-        const res = await axios.get("/api/posts");
+        const res = await axios.get(`${API_URL}/posts`);
         const filtered = category
         ? res.data.filter((p) => p.categories.includes(category))
         : res.data;

@@ -5,9 +5,11 @@ import PostComp from "../Components/PostComp";
 function Home() {
   const [curiosidades, setCuriosidades] = useState([]);
   const [trends, setTrends] = useState([]);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    axios.get("/api/posts").then((res) => {
+    axios.get(`${API_URL}/posts`).then((res) => {
+      console.log("Datos recibidos:", res.data);
       const data = Array.isArray(res.data) ? res.data : res.data.posts || [];
 
       // Filtrar por categoría

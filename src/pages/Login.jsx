@@ -9,10 +9,11 @@ function Login() {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   let navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const loginEvent = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http://localhost:5001/api/login`, {
+    const res = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),

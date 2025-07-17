@@ -7,9 +7,11 @@ function Post() {
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     axios
-      .get(`/api/posts/${id}`)
+      .get(`${API_URL}/posts/${id}`)
       .then((res) => setPost(res.data))
       .catch(() => {
         alert("Post no encontrado");
