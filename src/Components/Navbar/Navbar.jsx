@@ -1,25 +1,30 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Burger from "../Navbar/Burger";
-import { Link } from "react-router-dom"
 
 const Navbar = () => {
 return (
-    <nav className="navbar">
-    <div className="navbar-left">Nav bar
+    <header className="navbar-container">
+<div className="navbar-inner">
+
+    {/* Izquierda: Burger */}
+    <div className="navbar-section">
     <Burger />
     </div>
-    
-    <div className="navbar-center">
-        <div className="logo">ProjectChi</div>
+
+    {/* Centro: Logo */}
+    <div className="navbar-logo">
+    <Link to="/">ProjectChi</Link>
     </div>
 
-    <div className="navbar-right">
-        <Link to="/register" className="text-sm hover:underline">Register</Link>
-        <Link to="/login" className="text-sm hover:underline">Login</Link>
+    {/* Derecha: Links */}
+    <div className="navbar-section navbar-links">
+    <Link to="/register">Register</Link>
+    <Link to="/login">Login</Link>
     </div>
-    </nav>
-);
-};
+
+</div>
+</header>
+)};
 
 export default Navbar;
-

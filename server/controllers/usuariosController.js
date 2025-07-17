@@ -3,7 +3,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
+  try {
   const { nombre, email, password } = req.body;
+
+  if ( !nombre || !email || !password) {
+    return res.status(400).json({ mensaje: "Todos los campos son obligatorios"});
+  }
 
   const usuarioExistente = await Usuario.findOne({ email });
   if (usuarioExistente) {
@@ -19,7 +24,12 @@ exports.register = async (req, res) => {
   });
 
   await nuevoUsuario.save();
+
   res.status(201).json({ mensaje: "Usuario registrado", data: nuevoUsuario });
+} catch (error) {
+  console.log("Error en registro:", error.message);
+  res.status(500).json({mensaje: "Error interno del servidor"});
+}
 };
 
 exports.login = async (req, res) => {

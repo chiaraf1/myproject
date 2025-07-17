@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "../features/usuarios/usuariosSlice";
 import { useNavigate } from "react-router-dom";
+import { esAdmin } from "../utils/auth";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,8 +23,15 @@ function Login() {
 
     if (res.status === 200) {
       if (data.token) {
+         // ✅ Guardamos el usuario en localStorage
+        localStorage.setItem("usuario", JSON.stringify(data.data)); // Guarda { nombre, email }
+        localStorage.setItem("token", data.token); // opcional
+
+        //Redux
         dispatch(login({ email: data.data.email, token: data.token }));
-        navigate("/perfil");
+        navigate(esAdmin ? "/" : "/perfil");
+        window.location.reload(); //p que se actualice el menu
+                
       }
     } else {
       alert(data.mensaje);

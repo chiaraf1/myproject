@@ -12,4 +12,4 @@ return (
 )
 }
 
-export default Perfil
+export default Perfil;

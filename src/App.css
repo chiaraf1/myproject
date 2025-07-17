@@ -1,35 +1,50 @@
-
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 0 20px;
-    height: 60px;
-    color: white;
-    position: relative;
-}
-
-.logo {
-    font-size: 1.5rem;
-    color: white;
-}
-
-  /* BURGER ICON SIEMPRE VISIBLE */
+/* --- MENÚ LATERAL (Burger) --- */
 .burger-icon {
-    cursor: pointer;
-    color: white;
     z-index: 1001;
+  }
+
+  /* CENTRADO REAL DE NAVBAR */
+.navbar-container {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  background: white;
+  padding: 1rem 0;
 }
 
-  /* MENÚ LATERAL (CERRADO POR DEFECTO) */
-.nav-menu {
+.navbar-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.navbar-section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  flex: 1;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+  
+  .nav-menu {
     display: none;
-}
-
-  /* MENÚ ABIERTO */
-.nav-menu.open {
+  }
+  
+  .nav-menu.open {
     display: flex;
     flex-direction: column;
     background-color: #5e5858;
@@ -40,34 +55,38 @@
     width: 250px;
     padding-top: 4rem;
     z-index: 1000;
-}
-
-.nav-menu.open ul {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-menu.open ul {
     flex-direction: column;
     width: 100%;
     padding: 0;
     margin: 0;
     list-style: none;
-}
-
-.nav-menu.open li {
+  }
+  
+  .nav-menu.open li {
     padding: 15px 20px;
     border-bottom: 1px solid #777;
     color: white;
     cursor: pointer;
-}
-
-  /* OPCIONAL: TRANSICIÓN */
-.nav-menu.open {
-    transition: all 0.3s ease-in-out;
-}
-
-form.login{
+  }
+  
+  /* --- LOGIN FORM (opcional, si no migraste aún a Tailwind) --- */
+  
+  form.login, 
+  form.register {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 3rem auto;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
-}
-input{
+  }
+  
+  input {
     display: block;
     margin-bottom: 5px;
     width: 100%;
@@ -75,9 +94,9 @@ input{
     border: 2px solid #ddd;
     background-color: #fff;
     border-radius: 5px;
-}
-
-.button-login{
+  }
+  
+  .button-login{
     width: 100%;
     display: block;
     background-color: #555;
@@ -86,8 +105,8 @@ input{
     border-radius: 5px;
     padding: 7px 0;
     cursor: pointer;
-}
-.button-register{
+  }
+  .button-register{
     width: 100%;
     display: block;
     background-color: #555;
@@ -96,22 +115,5 @@ input{
     border-radius: 5px;
     padding: 7px 0;
     cursor: pointer;
-}
-
-.navbar-left,
-.navbar-center,
-.navbar-right {
-    flex: 1;
-    display: flex;
-    align-items:center;
-}
-
-
-.navbar-center{
-    justify-content: center;
-}
-
-.navbar-right {
-    justify-content: flex-end;
-    gap: 1rem;
-}
+  }
+  

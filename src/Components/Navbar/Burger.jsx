@@ -11,7 +11,7 @@ const closeMenu = () => setIsOpen(false);  //p cerrar el menu
 
 return (
     <>
-    <div className="burger-icon" onClick={toggleMenu}>
+    <div className="burger-icon text-gray-800 cursor-pointer" onClick={toggleMenu}>
         {isOpen ? <MdMenuOpen size={30} /> : <IoMenu size={30} />}
     </div>
     <Leftnav isOpen={isOpen} closeMenu={closeMenu} />

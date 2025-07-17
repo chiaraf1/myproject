@@ -3,24 +3,34 @@ import { Link } from "react-router-dom";
 
 function PostComp({ post }) {
   return (
-    <Link to={`/post/${post._id}`} className="block hover:shadow-md transition-shadow">
-      <div className="flex gap-4 border p-4 rounded">
-        {post.image && (
+    <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition duration-300 overflow-hidden flex flex-col min-h-[420px]">
+      {post.image && (
+        <Link to={`/post/${post._id}`}>
           <img
             src={post.image}
             alt={post.title}
-            className="w-32 h-32 object-cover rounded"
+            className="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
           />
-        )}
-        <div>
-          <h2 className="text-xl font-semibold mb-1">{post.title}</h2>
-          <p className="text-gray-700 line-clamp-3">{post.desc}</p>
-          <p className="text-sm text-gray-500 mt-2">
-            {post.categories.join(", ")}
-          </p>
+        </Link>
+      )}
+
+      <div className="p-6 flex flex-col justify-between h-full">
+        <div className="space-y-3">
+          <Link to={`/post/${post._id}`}>
+            <h3 className="text-2xl font-semibold tracking-tight leading-snug hover:underline">
+              {post.title}
+            </h3>
+          </Link>
+          <p className="text-gray-600 text-sm line-clamp-3">{post.desc}</p>
+        </div>
+
+        <div className="mt-4">
+          <span className="text-xs text-gray-400 tracking-widest uppercase">
+            {post.categories.join(" / ")}
+          </span>
         </div>
       </div>
-    </Link>
+    </div>
   );
 }
 

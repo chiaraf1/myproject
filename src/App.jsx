@@ -11,6 +11,8 @@ import EditPost from "./pages/EditPost";
 import CreatePost from "./pages/CreatePost";
 import Modelos from "./pages/Modelos";
 import Desfiles from "./pages/Desfiles"
+import { esAdmin } from "./utils/auth";
+import { Navigate } from "react-router-dom";
 
 
 function App () {
@@ -23,9 +25,9 @@ function App () {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/perfil" element={<Perfil />} />
-        <Route path="/admin" element={<AdminDash />} />
-        <Route path="/edit/:id" element={<EditPost />} />
-        <Route path="/create" element={<CreatePost />} />
+        <Route path="/admin" element={esAdmin() ? <AdminDash /> : <Navigate to="/" />} />
+        <Route path="/edit/:id" element={esAdmin() ? <EditPost /> : <Navigate to="/" />} />
+        <Route path="/create" element={esAdmin() ? <CreatePost /> : <Navigate to={"/"} />} />
         <Route path="/modelos" element={<Modelos />} />
         <Route path="/desfiles" element={<Desfiles />} />
       </Routes>
