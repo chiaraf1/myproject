@@ -20,11 +20,11 @@ function CreatePost() {
       setPost({ ...post, [name]: value });
     }
   };
-
+  const API_URL = import.meta.env.VITE_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/posts", post);
+      await axios.post(`${API_URL}/posts`, post);
       alert("Post creado exitosamente");
       navigate("/admin");
     } catch (err) {

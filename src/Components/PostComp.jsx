@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function PostComp({ post }) {
+  
   return (
     <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition duration-300 overflow-hidden flex flex-col min-h-[420px]">
       {post.image && (

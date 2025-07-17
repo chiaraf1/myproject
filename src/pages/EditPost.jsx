@@ -11,9 +11,9 @@ function EditPost() {
     image: "", 
     categories: [""] 
   });
-
+  const API_URL = import.meta.env.VITE_API_URL;
   useEffect(() => {
-    axios.get(`/api/posts/${id}`).then((res) => setPost(res.data));
+    axios.get(`${API_URL}/posts/${id}`).then((res) => setPost(res.data));
   }, [id]);
 
   const handleChange = (e) => {
@@ -27,7 +27,7 @@ function EditPost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`/api/posts/${id}`, post);
+    await axios.put(`${API_URL}/posts/${id}`, post);
     navigate("/admin");
   };
 
@@ -58,7 +58,6 @@ function EditPost() {
         placeholder="URL del video (YouTube o Vimeo)"
         className="w-full border p-2 rounded"
 />
-
 
         <option value="">Seleccionar categoria</option>
         <option value="modelos">Modelos</option>

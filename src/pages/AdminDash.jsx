@@ -5,13 +5,15 @@ import { useNavigate } from "react-router-dom";
 function AdminDash() {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
+  const API_URL = import.meta.env.VITE_API_URL;
+
 
   useEffect(() => {
-    axios.get("/api/posts").then((res) => setPosts(res.data));
+    axios.get(`${API_URL}/posts`).then((res) => setPosts(res.data));
   }, []);
 
   const handleDelete = async (id) => {
-    await axios.delete(`/api/posts/${id}`);
+    await axios.delete(`${API_URL}/posts/${id}`);
     setPosts(posts.filter((p) => p._id !== id));
   };
 
