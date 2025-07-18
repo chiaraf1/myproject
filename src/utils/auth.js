@@ -1,10 +1,7 @@
-// src/utils/auth.js
-
+// utils/auth.js
 export function esAdmin() {
-    const usuario = JSON.parse(localStorage.getItem("usuario"));
-    return (
-    usuario &&
-    usuario.email?.trim().toLowerCase() === "ctatifm77@gmail.com"
-    );
+    const usuarioStr = localStorage.getItem("usuario");
+    if (!usuarioStr) return false;
+    const usuario = JSON.parse(usuarioStr);
+    return usuario.email?.toLowerCase() === "ctatifm77@gmail.com";
 }
-

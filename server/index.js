@@ -15,7 +15,6 @@ const postRoutes = require("./routes/postsRoutes");
 
 //Usar rutas
 app.use("/api", userRoutes);
-app.use('/uploads', express.static('uploads'));
 app.use("/api/posts", postRoutes);
 
 

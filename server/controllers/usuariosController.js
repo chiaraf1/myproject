@@ -20,7 +20,8 @@ exports.register = async (req, res) => {
   const nuevoUsuario = new Usuario({
     nombre,
     email,
-    password: passwordHash
+    password: passwordHash,
+    
   });
 
   await nuevoUsuario.save();
@@ -45,7 +46,11 @@ exports.login = async (req, res) => {
     expiresIn: "1h"
   });
 
-  res.json({ mensaje: "Login exitoso", token, data:{email: usuario.email, nombre: usuario.nombre} });
+  res.json({ mensaje: "Login exitoso",
+    token, 
+    data:{email: usuario.email, 
+      nombre: usuario.nombre,
+    } });
 };
 
 exports.perfil = async (req, res) => {

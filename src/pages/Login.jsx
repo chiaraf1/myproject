@@ -13,6 +13,7 @@ function Login() {
 
   const loginEvent = async (e) => {
     e.preventDefault();
+    try {
     const res = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -20,22 +21,23 @@ function Login() {
     });
 
     const data = await res.json();
-    console.log(data);
+    console.log("rta del back login:", data);
 
-    if (res.status === 200) {
-      if (data.token) {
+    if (res.status === 200 && data.token) {
          // ✅ Guardamos el usuario en localStorage
         localStorage.setItem("usuario", JSON.stringify(data.data)); // Guarda { nombre, email }
         localStorage.setItem("token", data.token); // opcional
 
         //Redux
         dispatch(login({ email: data.data.email, token: data.token }));
-        navigate(esAdmin ? "/" : "/perfil");
-        window.location.reload(); //p que se actualice el menu
-                
-      }
+        navigate(esAdmin() ? "/" : "/perfil");
+      
     } else {
       alert(data.mensaje);
+    } 
+  } catch (error) {
+      console.error("Error en el login:");
+      alert("Error de conexion");
     }
   };
 

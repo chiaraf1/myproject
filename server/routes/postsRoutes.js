@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const verificarToken = require("../middleware/auth");
 const {
   getPosts,
   getPostById,
@@ -10,8 +11,8 @@ const {
 
 router.get("/", getPosts);
 router.get("/:id", getPostById);
-router.post("/", createPost);
-router.put("/:id", updatePost);
-router.delete("/:id", deletePost);
+router.post("/",verificarToken, createPost);
+router.put("/:id",verificarToken, updatePost);
+router.delete("/:id",verificarToken, deletePost);
 
 module.exports = router;

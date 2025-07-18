@@ -5,6 +5,7 @@ const [nombre, setNombre] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 const registrar = async (e) => {
@@ -61,6 +62,7 @@ return (
         onChange={(e) => setPassword(e.target.value)}
         required
     />
+
     <button type="submit" className="button-register">
         Register
     </button>
