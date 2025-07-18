@@ -6,6 +6,8 @@ function Posts({ category }) {
 const [posts, setPosts] = useState([]);
 const API_URL = import.meta.env.VITE_API_URL;
 
+console.log("API_URL desde Posts.jsx:", API_URL);
+
 useEffect(() => {
     const fetchPosts = async () => {
     try {
