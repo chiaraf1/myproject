@@ -9,7 +9,7 @@ const app = express();
 // ✅ Lista de orígenes permitidos
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://myproject-git-master-chiaraf1s-projects.vercel.app",
+  "https://myproject-git-main-chiaraf1s-projects.vercel.app",
   "https://myproject.vercel.app", // opcional si tenés este dominio
 ];
 
