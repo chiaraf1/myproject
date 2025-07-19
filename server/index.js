@@ -6,7 +6,14 @@ const cors = require("cors");
 
 const app = express();
 //Middlewares
-app.use(cors());
+const allowedOrigins = [
+  "https://myproject-git-master-chiaraf1s-projects.vercel.app",
+  "http://localhost:5173"
+];
+app.use(cors({
+  origin:allowedOrigins,
+  credentials:true 
+}));
 app.use(express.json());//pass json data
 
 //Rutas
