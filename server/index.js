@@ -6,42 +6,48 @@ const cors = require("cors");
 
 const app = express();
 
-// CORS seguro con subdominios de Vercel
+// ✅ Lista de orígenes permitidos
 const allowedOrigins = [
-  "http://localhost:5173", // tu entorno local
+  "http://localhost:5173",
+  "https://myproject-git-master-chiaraf1s-projects.vercel.app",
+  "https://myproject.vercel.app", // opcional si tenés este dominio
 ];
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (
-      allowedOrigins.includes(origin) ||
-      (origin && origin.endsWith(".vercel.app"))
-    ) {
-      callback(null, true);
-    } else {
-      callback(new Error("No permitido por CORS: " + origin));
-    }
-  },
-  credentials: true,
-};
+// ✅ Middleware CORS flexible
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.log("⛔️ CORS bloqueado para:", origin);
+        callback(new Error("No permitido por CORS: " + origin));
+      }
+    },
+    credentials: true,
+  })
+);
 
-app.use(cors(corsOptions));
-app.use(express.json()); // Para parsear JSON
+// ✅ Middleware para parsear JSON
+app.use(express.json());
 
-// Rutas
+// ✅ Rutas
 const userRoutes = require("./routes/usuarios");
 const postRoutes = require("./routes/postsRoutes");
 
+// ✅ Usar rutas
 app.use("/api", userRoutes);
 app.use("/api/posts", postRoutes);
 
-// Ruta de prueba
+// ✅ Ruta raíz
 app.get("/", (req, res) => {
   res.send("API CORRIENDO CORRECTAMENTE");
 });
 
-// Puerto
+// ✅ Puerto
 const PORT = process.env.PORT || 5001;
+
+// ✅ Iniciar servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
