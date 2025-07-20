@@ -6,7 +6,8 @@ const cors = require("cors");
 const app = express();
 // ✅ Middleware para parsear JSON
 app.use(express.json());
-app.use(cors());
+const whiteList = ["https://myproject-git-main-chiaraf1s-projects.vercel.app"];
+app.use(cors({origin: whiteList}));
 
 // ✅ Rutas
 const userRoutes = require("./routes/usuarios");
