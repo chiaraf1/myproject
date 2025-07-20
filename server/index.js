@@ -6,15 +6,15 @@ const cors = require("cors");
 
 const app = express();
 
-// ✅ Lista de orígenes permitidos
+// Orígenes permitidos en producción y desarrollo
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://myproject-git-main-chiaraf1s-projects.vercel.app",
-  "https://myproject.vercel.app", // opcional si tenés este dominio
+  "https://myproject-chiaraf1s-projects.vercel.app",
+  "https://myproject-fjgwxvhxa-chiaraf1s-projects.vercel.app", // Dominio que usás en Vercel
 ];
 
-// ✅ Middleware CORS flexible
-app.use(
+// Middleware CORS personalizado para manejar errores y evitar 500
+app.use((req, res, next) => {
   cors({
     origin: function (origin, callback) {
       if (!origin || allowedOrigins.includes(origin)) {
@@ -24,9 +24,13 @@ app.use(
         callback(new Error("No permitido por CORS: " + origin));
       }
     },
-    credentials: true,
-  })
-);
+  })(req, res, (err) => {
+    if (err) {
+      return res.status(403).json({ message: err.message });
+    }
+    next();
+  });
+});
 
 // ✅ Middleware para parsear JSON
 app.use(express.json());
