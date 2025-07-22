@@ -22,27 +22,30 @@ function Post() {
   if (!post) return <div className="text-center p-6">Cargando post...</div>;
 
   return (
-    <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+    <div className="max-w-3xl mx-auto p-6 flex flex-col items-center text-center">
+      <h1 className="text-3xl md:text-4xl font-serif italic mb-8">{post.title}</h1>
       {post.image && (
         <img
           src={post.image}
           alt={post.title}
-          className="w-full h-auto object-cover rounded mb-6"
+          className="w-full max-w-[600px] h-auto object-cover rounded-lg shadow-md mb-8"
         />
       )}
+
+      {/* video separado de la imagen */}
       {post.video && (
-  <div className="aspect-video mb-6">
-    <iframe
-      className="w-full h-full"
+      <div className="w-full max-w-[600px] aspect-video mb-8">
+      <iframe
+      className="w-full h-full rounded-lg shadow-md"
       src={post.video}
       title="Video del desfile"
       allowFullScreen
     ></iframe>
   </div>
 )}
-      <p className="text-gray-700 whitespace-pre-line mb-6">{post.desc}</p>
-      <p className="text-sm text-gray-500">Categorías: {post.categories.join(", ")}</p>
+
+      <p className="text-gray-700 text-base leading-relaxed max-w-prose mb-8 whitespace-pre-line">{post.desc}</p>
+      <p className="text-sm text-gray-500 tracking-wide uppercase">Categorías: {post.categories.join(", ")}</p>
     </div>
   );
 }
