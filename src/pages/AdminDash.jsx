@@ -13,9 +13,21 @@ function AdminDash() {
   }, []);
 
   const handleDelete = async (id) => {
-    await axios.delete(`${API_URL}/posts/${id}`);
+    const token = localStorage.getItem("token");
+
+    try{
+    await axios.delete(`${API_URL}/posts/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    });
+    alert("Post eliminado");
     setPosts(posts.filter((p) => p._id !== id));
-  };
+  } catch (err) {
+    console.error("Error al eliminar el post:", err.response?.data || err.message);
+    alert("No se pudo eliminar el post");
+  }
+};
 
   return (
     <div className="max-w-4xl mx-auto p-4">
