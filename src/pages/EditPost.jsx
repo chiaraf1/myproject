@@ -27,9 +27,27 @@ function EditPost() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(`${API_URL}/posts/${id}`, post);
+    const token = localStorage.getItem("token");
+    
+    try{ 
+      const postToSend = {
+        ...post,
+        categories: post.categories ? [post.categories] : [],
+      };
+
+    await axios.put(`${API_URL}/posts/${id}`, postToSend, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    });
+
+    alert("Post actualizado");
     navigate("/admin");
-  };
+  } catch (err) {
+    console.error("Error al editar post:", err.response?.data || err.message);
+    alert("No se pudo actualizar el post");
+  }
+};
 
   return (
     <div className="max-w-2xl mx-auto p-4">

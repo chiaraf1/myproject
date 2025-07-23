@@ -23,12 +23,25 @@ function CreatePost() {
   const API_URL = import.meta.env.VITE_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const token = localStorage.getItem("token");
+
     try {
-      await axios.post(`${API_URL}/posts`, post);
+      const postToSend = {
+        ...post,
+        categories: post.categories[0] ? [post.categories[0]] : [],
+      };
+
+      await axios.post(`${API_URL}/posts`, postToSend, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       alert("Post creado exitosamente");
       navigate("/admin");
     } catch (err) {
-      console.error("Error al crear post:", err);
+      console.error("Error al crear post:", err.response?.data || err.message);
+      alert("No se pudo crear post");
     }
   };
 
