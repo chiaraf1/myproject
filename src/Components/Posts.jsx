@@ -29,9 +29,13 @@ return (
     {posts.length === 0 ? (
         <p className="text-gray-600">No hay posts disponibles.</p>
     ) : (
-        posts.map((post) => <PostComp key={post._id} post={post} />)
-    )}
+        <div className="grid md:grid-cols-2 gap-12">
+        {posts.map((post) => (
+        <PostComp key={post._id} post={post} />
+        ))}
     </div>
+)};
+</div>
 );
 }
 
