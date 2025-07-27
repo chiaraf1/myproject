@@ -8,7 +8,6 @@ return (
     <h1 className="text-4xl font-serif italic tracking-wide uppercase">
         Desfiles iconicos </h1>
 </div>
-
 <Posts category="desfiles" />;
 </section>
 )
