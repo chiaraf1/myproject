@@ -13,8 +13,8 @@ return (
     </div>
 
     {/* Centro: Logo */}
-    <div className="navbar-logo">
-    <Link to="/">ProjectChi</Link>
+    <div className="navbar-logo text-4xl font-serif font-bold uppercase tracking-wide">
+    <Link to="/">CHIARISSIME</Link>
     </div>
 
     {/* Derecha: Links */}

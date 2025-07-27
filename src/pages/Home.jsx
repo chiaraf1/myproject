@@ -21,7 +21,7 @@ function Home() {
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 space-y-20 font-serif text-gray-900">
       <div>
-        <h2 className="text-5xl font-bold mb-10 uppercase tracking-wider text-center border-b pb-4">
+        <h2 className="text-3xl font-bold mb-10 uppercase tracking-wider text-center border-b pb-4">
           Curiosidades
           </h2>
         {curiosidades.length === 0 ? (
@@ -37,7 +37,7 @@ function Home() {
   
 
       <div>
-      <h2 className="text-5xl font-bold mb-10 uppercase tracking-wider text-center border-b pb-4">
+      <h2 className="text-3xl font-bold mb-10 uppercase tracking-wider text-center border-b pb-4">
         Trends 
         </h2>
         {trends.length === 0 ? (
