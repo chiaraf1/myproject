@@ -1,21 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
 @import "tailwindcss";
 
-
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html,body, #root{
-  /* Este reset asegura que todo esté centrado correctamente */
+html, body, #root {
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Playfair Display', serif;
   background-color: #fafafa;
+}
+
+/* Centrado global de todo el contenido */
+#root {
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
