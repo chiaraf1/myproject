@@ -44,7 +44,7 @@
   .nav-menu.open {
     display: flex;
     flex-direction: column;
-    background-color: #5e5858;
+    background-color: #bdbdbd;
     position: fixed;
     top: 0;
     right: 0;
