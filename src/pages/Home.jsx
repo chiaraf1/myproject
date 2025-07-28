@@ -20,38 +20,45 @@ function Home() {
 
   return (
     <div className="max-w-6xl mx-auto px-6 py-16 space-y-20 font-serif text-gray-900">
+  
+      {/* Sección: Curiosidades */}
       <div>
-        <h2 className="text-3xl font-bold mb-10 uppercase tracking-wider text-center border-b pb-4">
+        <h2 className="text-3xl font-light mb-10 uppercase tracking-widest text-center border-b border-gray-300 pb-4 text-gray-800">
           Curiosidades
-          </h2>
+        </h2>
         {curiosidades.length === 0 ? (
-          <p className="text-gray-600 text-center italic" >No hay curiosidades aún.</p>
+          <p className="text-gray-600 text-center italic">
+            No hay curiosidades aún.
+          </p>
         ) : (
           <div className="grid md:grid-cols-2 gap-12">
-          {curiosidades.map((post) => (
-            <PostComp key={post._id} post={post} />
-        ))}
+            {curiosidades.map((post) => (
+              <PostComp key={post._id} post={post} />
+            ))}
+          </div>
+        )}
       </div>
-  )}
-  </div>
   
-
+      {/* Sección: Trends */}
       <div>
-      <h2 className="text-3xl font-bold mb-10 uppercase tracking-wider text-center border-b pb-4">
-        Trends 
+        <h2 className="text-3xl font-light mb-10 uppercase tracking-widest text-center border-b border-gray-300 pb-4 text-gray-800">
+          Trends
         </h2>
         {trends.length === 0 ? (
-          <p className="text-gray-600 text-center italic">No hay trends aún.</p>
+          <p className="text-gray-600 text-center italic">
+            No hay trends aún.
+          </p>
         ) : (
           <div className="grid md:grid-cols-2 gap-12">
-          {trends.map((post) => (
-            <PostComp key={post._id} post={post} />
-          ))}
-        </div>
-      )}
+            {trends.map((post) => (
+              <PostComp key={post._id} post={post} />
+            ))}
+          </div>
+        )}
+      </div>
+      
     </div>
-  </div>
-);
-}
+  );
+};
 
 export default Home;
