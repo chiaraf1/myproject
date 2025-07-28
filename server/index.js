@@ -10,7 +10,7 @@ app.use(express.json());
 //Middleware cors
 app.use(cors
   ({
-    origin: "https://incomparable-bombolone-6a8844.netlify.app",
+    origin: "https://chiara-project.netlify.app",
   credentials:true,
 }));
 
