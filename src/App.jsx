@@ -20,7 +20,7 @@ function App () {
     <BrowserRouter>
       <Navbar />
       {/* CONTENEDOR GENERAL CENTRADO */}
-      <div className="max-w-7xl mx-auto px-6 py-10"></div>
+      <div className="max-w-7xl mx-auto px-6 py-10">
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/post/:id" element={<Post />} />
@@ -33,6 +33,7 @@ function App () {
         <Route path="/modelos" element={<Modelos />} />
         <Route path="/desfiles" element={<Desfiles />} />
       </Routes>
+      </div>
       </BrowserRouter>
   )
 }
