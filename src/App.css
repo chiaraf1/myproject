@@ -70,7 +70,7 @@
     cursor: pointer;
   }
   
-  /* --- LOGIN FORM (opcional, si no migraste aún a Tailwind) --- */
+  /* --- LOGIN REGISTER FORM --- */
   
   form.login, 
   form.register {

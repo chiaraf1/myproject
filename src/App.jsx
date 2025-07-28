@@ -19,6 +19,8 @@ function App () {
   return (
     <BrowserRouter>
       <Navbar />
+      {/* CONTENEDOR GENERAL CENTRADO */}
+      <div className="max-w-7xl mx-auto px-6 py-10"></div>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/post/:id" element={<Post />} />
