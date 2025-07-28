@@ -6,8 +6,6 @@ function Posts({ category }) {
 const [posts, setPosts] = useState([]);
 const API_URL = import.meta.env.VITE_API_URL;
 
-console.log("API_URL desde Posts.jsx:", API_URL);
-
 useEffect(() => {
     const fetchPosts = async () => {
     try {
@@ -25,17 +23,17 @@ useEffect(() => {
 }, [category]);
 
 return (
-    <div className="max-w-4xl mx-auto p-6 space-y-4">
+    <div className="max-w-6xl mx-auto px-6 py-10">
     {posts.length === 0 ? (
         <p className="text-gray-600">No hay posts disponibles.</p>
     ) : (
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
         {posts.map((post) => (
-        <PostComp key={post._id} post={post} />
+            <PostComp key={post._id} post={post} />
         ))}
+        </div>
+    )}
     </div>
-)};
-</div>
 );
 }
 
