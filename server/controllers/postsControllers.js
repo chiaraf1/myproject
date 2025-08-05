@@ -23,6 +23,9 @@ const getPostById = async (req, res) => {
 
 // Crear un nuevo post
 const createPost = async (req, res) => {
+  if (req.usuario.email !== "ctatifm77@gmail.com") {
+    return res.status(403).json({ error: "No tienes permiso para crear posts" });
+  }
   try {
     const newPost = new Post(req.body);
     const savedPost = await newPost.save();
@@ -34,6 +37,9 @@ const createPost = async (req, res) => {
 
 // Actualizar un post existente
 const updatePost = async (req, res) => {
+  if (req.usuario.email !== "ctatifm77@gmail.com") {
+    return res.status(403).json({ error: "No tienes permiso para crear posts" });
+  }
   try {
     const updatedPost = await Post.findByIdAndUpdate(
       req.params.id,
@@ -49,6 +55,9 @@ const updatePost = async (req, res) => {
 
 // Eliminar un post
 const deletePost = async (req, res) => {
+  if (req.usuario.email !== "ctatifm77@gmail.com") {
+    return res.status(403).json({ error: "No tienes permiso para crear posts" });
+  }
   try {
     const deletedPost = await Post.findByIdAndDelete(req.params.id);
     if (!deletedPost) return res.status(404).json({ error: "Post no encontrado" });
