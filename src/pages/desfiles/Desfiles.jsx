@@ -1,7 +1,8 @@
 import React from "react";
 import Posts from "../../Components/Posts";
 import './desfiles.css';
-function Modelos() {
+
+function Desfiles() {
 return (
     <div className="desfiles-container">
         <h2 className="section-title">
