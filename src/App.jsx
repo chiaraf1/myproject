@@ -2,7 +2,7 @@ import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Navbar from './Components/Navbar/Navbar';
 import Home from './pages/home/Home';
-import Post from "./pages/Post"
+import Post from "./pages/post/Post"
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Perfil from "./pages/Perfil"
