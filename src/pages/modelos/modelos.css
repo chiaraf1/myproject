@@ -1,0 +1,44 @@
+.modelos-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    color: #000;
+    background: #ffffff;
+    min-height: 100vh;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+    color: #000;
+    position: relative;
+    padding-bottom: 25px;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: #000;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .modelos-container {
+      padding: 60px 20px;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+  }
