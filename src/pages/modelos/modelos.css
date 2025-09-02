@@ -2,10 +2,10 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px 40px;
-    font-family: 'Playfair Display', 'Times New Roman', serif;
     color: #000;
     background: #ffffff;
     min-height: 100vh;
+    font-family: var(--body-font);
   }
 
   .section-title {

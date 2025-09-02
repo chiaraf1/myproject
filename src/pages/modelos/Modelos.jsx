@@ -1,6 +1,7 @@
 import React from "react";
 import Posts from "../../Components/Posts";
 import './modelos.css';
+
 function Modelos() {
 return (
     <div className="modelos-container">

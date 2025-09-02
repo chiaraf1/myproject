@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     min-height: 60vh;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--body-font);
     font-size: 1.2rem;
     color: #666;
   }
@@ -15,7 +15,7 @@
       padding: 80px 40px;
       background: #ffffff;
       min-height: 100vh;
-      font-family: 'Playfair Display', 'Times New Roman', serif;
+      font-family: var(--body-font);
     }
 
     .post-header {
@@ -76,7 +76,7 @@
       line-height: 1.8;
       margin-bottom: 50px;
       white-space: pre-line;
-      font-family: 'Georgia', serif;
+      font-family: var(--body-font);
     }
 
     .post-meta {

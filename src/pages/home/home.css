@@ -1,40 +1,8 @@
-.home-container {
-    font-family: 'Playfair Display', 'Times New Roman', serif;
-    color: #000;
-    line-height: 1.6;
-    background: #ffffff;
-    min-height: 100vh;
-  }
-
-  .hero-section {
-    text-align: center;
-    padding: 100px 20px 80px;
-    background: #000;
-    color: white;
-    position: relative;
-    margin-bottom: 80px;
-  }
-
-  .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-  }
-
-  .hero-subtitle {
-    font-size: 1.2rem;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    opacity: 0.9;
-    font-style: italic;
-  }
-
   .main-content {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
+    font-family: var(--body-font);
   }
 
   .section {

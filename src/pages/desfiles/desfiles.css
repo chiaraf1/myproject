@@ -2,7 +2,7 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 80px 40px;
-    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-family: var(--body-font);
     color: #000;
     background: #ffffff;
     min-height: 100vh;

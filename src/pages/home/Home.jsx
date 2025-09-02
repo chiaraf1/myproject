@@ -20,13 +20,6 @@ function Home() {
   }, []);
 
   return (
-    <div className="home-container">
-    {/* Hero Section */}
-    <section className="hero-section">
-      <h1 className="hero-title">CHIARISSIME</h1>
-      <p className="hero-subtitle">El mundo de la moda a través de los ojos de las supermodelos</p>
-    </section>
-
     <div className="main-content">
       {/* Sección: Curiosidades */}
       <section className="section">
@@ -68,7 +61,6 @@ function Home() {
         )}
       </section>
     </div>
-  </div>
 );
 }
 
