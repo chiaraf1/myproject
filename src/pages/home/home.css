@@ -1,0 +1,150 @@
+.home-container {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    color: #000;
+    line-height: 1.6;
+    background: #ffffff;
+    min-height: 100vh;
+  }
+
+  .hero-section {
+    text-align: center;
+    padding: 100px 20px 80px;
+    background: #000;
+    color: white;
+    position: relative;
+    margin-bottom: 80px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    opacity: 0.9;
+    font-style: italic;
+  }
+
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section {
+    margin-bottom: 100px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #000;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 2px;
+    background: #000;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 50px;
+    margin-top: 40px;
+  }
+
+  /* Estilos para tu PostComp existente */
+  .posts-grid > * {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .posts-grid > *:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .posts-grid > *:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+
+  .posts-grid > *:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f8f8f8;
+    border: 2px solid #000;
+  }
+
+  .empty-message {
+    font-size: 1.1rem;
+    color: #666;
+    font-style: italic;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 0 20px;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .hero-section {
+      padding: 60px 20px 40px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+  }
+
+  /* Animaciones */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

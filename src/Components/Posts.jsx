@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import PostComp from "./PostComp"; // cada post individual
+import PostComp from "../Components/Postcomp/PostComp"; // cada post individual
 
 function Posts({ category }) {
 const [posts, setPosts] = useState([]);

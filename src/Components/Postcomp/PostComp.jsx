@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import './postcomp.css'
 
 function PostComp({ post }) {
   const location = useLocation();
@@ -10,29 +11,29 @@ function PostComp({ post }) {
     : post.desc;
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col h-full">
+    <div className="post-card">
       {/* Imagen */}
       {post.image && (
-        <Link to={`/post/${post._id}`}>
+        <Link to={`/post/${post._id}`} className="post-image-link">
           <img
             src={post.image}
             alt={post.title}
-            className="h-80 w-full object-cover transition-transform duration-300 hover:scale-105"
+            className="post-image"
           />
         </Link>
       )}
 
       {/* Contenido */}
-      <div className="p-6 flex flex-col justify-between flex-grow text-center">
-        <Link to={`/post/${post._id}`}>
-          <h3 className="text-xl font-serif italic mb-4 hover:underline">
+      <div className="post-content">
+        <Link to={`/post/${post._id}`} className="post-title-link">
+          <h3 className="post-title">
             {post.title}
           </h3>
         </Link>
 
-        <p className="text-sm text-gray-600 mb-4">{truncatedDesc}</p>
+        <p className="post-description">{truncatedDesc}</p>
 
-        <div className="text-xs uppercase text-gray-400 tracking-wide">
+        <div className="post-categories">
           {post.categories.join(" / ")}
         </div>
       </div>
