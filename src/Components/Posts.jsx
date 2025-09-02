@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PostComp from "../Components/Postcomp/PostComp"; // cada post individual
+import './postsc.css';
 
 function Posts({ category }) {
 const [posts, setPosts] = useState([]);
@@ -23,18 +24,20 @@ useEffect(() => {
 }, [category]);
 
 return (
-    <div className="max-w-6xl mx-auto px-6 py-10">
-    {posts.length === 0 ? (
-        <p className="text-gray-600">No hay posts disponibles.</p>
-    ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {posts.map((post) => (
-            <PostComp key={post._id} post={post} />
-        ))}
-        </div>
-    )}
-    </div>
-);
+    <div className="posts-container">
+        {posts.length === 0 ? (
+          <div className="empty-state">
+            <p className="empty-message">No hay posts disponibles.</p>
+          </div>
+        ) : (
+          <div className="posts-grid">
+            {posts.map((post) => (
+              <PostComp key={post._id} post={post} />
+            ))}
+          </div>
+        )}
+      </div>
+  );
 }
 
 export default Posts;

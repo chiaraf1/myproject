@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import './post.css'
 
 function Post() {
   const { id } = useParams();
@@ -19,34 +20,47 @@ function Post() {
       });
   }, [id]);
 
-  if (!post) return <div className="text-center p-6">Cargando post...</div>;
+  if (!post) return  <div className="loading-container">
+  Cargando post...
+</div>
 
   return (
-    <div className="max-w-3xl mx-auto p-6 flex flex-col items-center text-center">
-      <h1 className="text-3xl md:text-4xl font-serif italic mb-8">{post.title}</h1>
-      {post.image && (
-        <img
-          src={post.image}
-          alt={post.title}
-          className="w-full max-w-[600px] h-auto object-cover rounded-lg shadow-md mb-8"
-        />
-      )}
+    <article className="post-container">
+        <header className="post-header">
+          <h1 className="post-title">{post.title}</h1>
+        </header>
 
-      {/* video separado de la imagen */}
-      {post.video && (
-      <div className="w-full max-w-[600px] aspect-video mb-8">
-      <iframe
-      className="w-full h-full rounded-lg shadow-md"
-      src={post.video}
-      title="Video del desfile"
-      allowFullScreen
-    ></iframe>
-  </div>
-)}
+        <div className="post-media">
+          {post.image && (
+            <img
+              src={post.image}
+              alt={post.title}
+              className="post-image"
+            />
+          )}
 
-      <p className="text-gray-700 text-base leading-relaxed max-w-prose mb-8 whitespace-pre-line">{post.desc}</p>
-      <p className="text-sm text-gray-500 tracking-wide uppercase">Categorías: {post.categories.join(", ")}</p>
-    </div>
+          {post.video && (
+            <div className="post-video-container">
+              <iframe
+                className="post-video"
+                src={post.video}
+                title="Video del desfile"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
+        </div>
+
+        <div className="post-content">
+          <p className="post-description">{post.desc}</p>
+        </div>
+
+        <footer className="post-meta">
+          <p className="post-categories">
+            Categorías: {post.categories.join(", ")}
+          </p>
+        </footer>
+      </article>
   );
 }
 
