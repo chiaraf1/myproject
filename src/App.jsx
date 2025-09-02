@@ -1,4 +1,4 @@
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import Navbar from './Components/Navbar/Navbar';
 import Home from './pages/home/Home';
@@ -9,8 +9,8 @@ import Perfil from "./pages/Perfil"
 import AdminDash from "./pages/AdminDash";
 import EditPost from "./pages/EditPost";
 import CreatePost from "./pages/CreatePost";
-import Modelos from "./pages/Modelos";
-import Desfiles from "./pages/Desfiles"
+import Modelos from "./pages/modelos/Modelos";
+import Desfiles from "./pages/desfiles/Desfiles"
 import { esAdmin } from "./utils/auth";
 import { Navigate } from "react-router-dom";
 
