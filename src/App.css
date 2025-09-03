@@ -30,6 +30,7 @@
   flex: 1;
   display: flex;
   align-items: center;
+  font-family: var(--body-font);
 }
 
 .navbar-logo {
@@ -40,6 +41,7 @@
 .navbar-links {
   justify-content: flex-end;
   gap: 1rem;
+  font-family: var(--body-font);
 }
 
   
@@ -74,6 +76,13 @@
     border-bottom: 1px solid #777;
     color: black;
     cursor: pointer;
+    font-family: var(--body-font);
+  }
+
+  .nav-menu.open li a {
+    font-family: var(--body-font);
+    text-decoration: none;
+    color: inherit;
   }
   
   /* --- LOGIN REGISTER FORM --- */
