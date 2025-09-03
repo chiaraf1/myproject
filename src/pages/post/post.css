@@ -41,7 +41,7 @@
       justify-content: center;
     }
 
-    .post-image {
+    .post-image .post-container{
       width: 100%;
       max-width: 600px;
       height: auto;
