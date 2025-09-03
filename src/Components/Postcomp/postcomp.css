@@ -51,7 +51,7 @@
   }
 
   .post-title {
-    font-size: 0.9rem;
+    font-size: 0.6rem;
     font-family: var(--body-font);
     font-weight: 500;
     margin-bottom: 15px;
@@ -96,7 +96,7 @@
     }
     
     .post-title {
-      font-size: 1.2rem;
+      font-size: 0.95rem;
       margin-bottom: 15px;
     }
     
